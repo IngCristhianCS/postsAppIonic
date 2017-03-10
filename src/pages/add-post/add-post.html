@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>addPost</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+	<ion-list>
+		<form [formGroup]="formPost" (ngSubmit)="add()">
+		  <ion-item>
+		    <ion-label floating>Titulo<h4 *ngIf="title.status=='INVALID'" style="color: red;">requerido!!</h4></ion-label>
+		    <ion-input type="text" [(ngModel)]="post.title" formControlName="title"></ion-input>
+		  </ion-item> 
+		  <ion-item *ngIf="title.hasError('minlength') && title.touched" >
+            <p style="color: red;">* Su titulo es muy corto</p>
+          </ion-item>
+		  <ion-item>
+		  	<ion-label floating>Redactar Post<h4 *ngIf="body.status=='INVALID'" style="color: red;">requerido!!</h4></ion-label>
+		    <ion-textarea [(ngModel)]="post.body" formControlName="body"></ion-textarea>
+		  </ion-item>
+		  <ion-item>
+		    <button ion-button round color="secondary" type="submit" [disabled]="!formPost.valid"><ion-icon name="share-alt"></ion-icon> Enviar</button>
+		  </ion-item>
+		</form>
+	</ion-list>
+
+</ion-content>

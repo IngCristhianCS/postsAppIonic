@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar>
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>detalles</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+	<ion-card>
+	  <ion-card-header>
+	    {{post?.title }}
+	  </ion-card-header>
+	  <ion-card-content>
+	    {{post?.body }}
+	  </ion-card-content>
+	  <button ion-button icon-only color="danger" round (click)="showConfirm()">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+	</ion-card>
+</ion-content>
